@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     String content_type  = getMimeType(f.getPath());
 
                     String file_path = f.getAbsolutePath();
+                    file_path = file_path .replace("/root_path/", "");
                     OkHttpClient client = new OkHttpClient();
                     RequestBody file_body = RequestBody.create(MediaType.parse(content_type),f);
 
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                             .build();
 
                     Request request = new Request.Builder()
-                            .url("http://140.113.208.137/testing/save_file.php")
+                            .url("http://192.168.1.25/UploadFile/UploadToServer.php")
                             .post(request_body)
                             .build();
 
